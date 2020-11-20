@@ -13,7 +13,9 @@ const forecast = (latitude, longitude, callback) => {
             const weatherDescription = body.current.weather_descriptions[0]
             const degrees = body.current.temperature
             const feelsLike = body.current.feelslike
-            const message = weatherDescription + '. It is currently ' + degrees + ' degrees out. It feels like ' + feelsLike + ' degress out.'
+            const humidity = body.current.humidity
+            const localTime = body.location.localtime
+            const message = weatherDescription + '. It is currently ' + degrees + ' degrees out. It feels like ' + feelsLike + ' degress out. Humidity is at ' + humidity + ' dew point. The current local time is ' + localTime + '.'
 
             // Return value
             callback(undefined, message)
